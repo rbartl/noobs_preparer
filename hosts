@@ -1,0 +1,1 @@
+target   ansible_host=unpack/os/Raspbian/root   ansible_connection=chroot   ansible_executable="usr/bin/qemu-arm-static /bin/bash"
