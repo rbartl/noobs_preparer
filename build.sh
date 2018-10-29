@@ -5,11 +5,12 @@ set -o pipefail
 
 set -x
 
-#rm NOOBS_latest
-
-#wget https://downloads.raspberrypi.org/NOOBS_latest.torrent
-#wget https://downloads.raspberrypi.org/NOOBS_latest
-#wget https://downloads.raspberrypi.org/raspbian_lite/root.tar.xz
+if [ ! -f NOOBS_latest ] ; then 
+ wget https://downloads.raspberrypi.org/NOOBS_latest
+fi
+if [ ! -f root.tar.xz ] ; then
+ wget https://downloads.raspberrypi.org/raspbian_lite/root.tar.xz
+fi
 
 
 rm -rf unpack 2> /dev/null
