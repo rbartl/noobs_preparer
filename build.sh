@@ -18,11 +18,12 @@ mkdir unpack
 unzip NOOBS_latest -d unpack
 
 echo "runinstaller quiet ramdisk_size=32768 root=/dev/ram0 init=/init vt.cur_default=1 elevator=deadline silentinstall" > unpack/recovery.cmdline
+OSDIR=Raspbian_Full
 
 rm -rf unpack/os/Libr*
-cp root.tar.xz unpack/os/Raspbian/root.tar.xz
+cp root.tar.xz unpack/os/${OSDIR}/root.tar.xz
 
-cd unpack/os/Raspbian
+cd unpack/os/${OSDIR}
 
 mkdir root
 
