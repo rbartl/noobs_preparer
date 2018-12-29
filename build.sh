@@ -28,8 +28,7 @@ cd unpack/os/${OSDIR}
 mkdir root
 
 tar -xJf root.tar.xz -C root
-mkdir root/boot
-tar -xJf ../boot.tar.xz -C root/boot
+tar -xJf boot.tar.xz -C root/boot
 
 cd root
 
@@ -44,7 +43,7 @@ ansible-playbook playbook.yaml -i hosts
 cd unpack/os/${OSDIR}
 
 tar -cJf boot.tar.xz -C root/boot .
-rm -rf root/boot
+rm -rf root/boot/
 
 tar -cJf root.tar.xz -C root .
 rm -rf root
