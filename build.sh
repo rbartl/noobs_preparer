@@ -28,32 +28,28 @@ cd unpack/os/${OSDIR}
 mkdir root
 
 tar -xJf root.tar.xz -C root
+mkdir root/boot
+tar -xJf ../boot.tar.xz -C root/boot
+
 cd root
 
 cp /usr/bin/qemu-arm-static usr/bin/
 
+
 # ansible
+cd ../../../..
 ansible-playbook playbook.yaml -i hosts
 
-exit 0
 
-cd ..
+cd unpack/os/${OSDIR}
+
+tar -cJf boot.tar.xz -C root/boot .
+rm -rf root/boot
 
 tar -cJf root.tar.xz -C root .
 rm -rf root
 
-mkdir boot
-tar -xJf boot.tar.xz -C boot
 
-cd boot
-
-sed -i s/audio=on// config.txt
-echo "dtoverlay=hifiberry-dacplus" >> config.txt
-
-cd ..
-
-tar -cJf boot.tar.xz -C boot .
-rm -rf boot
 
 
 
