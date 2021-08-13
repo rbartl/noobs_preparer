@@ -18,9 +18,8 @@ then the image will be compressed again.
 HOWTO
 --------
 
-* change playbook.yaml according to your needs (currently it just installs
-joe)
-* call build.sh as root
+* change playbook.yaml according to your needs (currently it just installs joe   and enables ssh) 
+* call build.sh as root (prefix with USE_PLAYBOOKS="xxx.yaml" to add additional playbooks
 * copy unpack directory onto an empty sdcard
 * put it into a raspberry and let it boot 
 * wait a few minutes while customized image will be installed

@@ -30,6 +30,7 @@ mkdir root
 tar -xJf root.tar.xz -C root
 tar -xJf boot.tar.xz -C root/boot
 
+
 cd root
 
 cp /usr/bin/qemu-arm-static usr/bin/
@@ -38,6 +39,9 @@ cp /usr/bin/qemu-arm-static usr/bin/
 # ansible
 cd ../../../..
 ansible-playbook playbook.yaml -i hosts
+for playbook in $USE_PLAYBOOKS ; do
+  ansible-playbook $playbook -i hosts
+done
 
 
 cd unpack/os/${OSDIR}

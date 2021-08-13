@@ -4,5 +4,24 @@
   - name: install joe
     apt:
       pkg: joe
+  - name: install ssh
+    apt:
+      pkg: ssh
       
+  - name: enable ssh
+    service:
+      name: ssh
+      enabled: yes
+
+
+  - name: create .ssh dir
+    file:
+      path: /root/.ssh
+      state: directory
       
+  - name: copy ssh key
+    copy:
+      src: files/ssh.pub
+      dest: /root/.ssh/authorized_keys
+
+                  

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mkdir mount > /dev/null 2> /dev/null
+
 set -e
 set -o pipefail
 

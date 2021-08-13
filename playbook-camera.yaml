@@ -1,0 +1,14 @@
+---
+- hosts: target
+  tasks:
+  - name: add camera line 1
+    lineinfile:
+      path: /boot/config.txt
+      line: 'start_x=1'
+      
+  - name: add camera line 2
+    lineinfile:
+      path: /boot/config.txt
+      line: 'gpu_mem=128'
+      
+      
