@@ -1,1 +1,5 @@
-target   ansible_host=unpack/os/Raspbian_Full/root   ansible_connection=chroot   ansible_executable="usr/bin/qemu-arm-static /bin/bash"
+target   ansible_host=unpack/os/RaspiOS_Full_armhf/root   ansible_connection=chroot 
+#  ansible_executable="usr/bin/qemu-arm-static /bin/bash"
+
+#ansible_connection=local ansible_python_interpreter=chroot_wrapper.sh
+#  ansible_host=unpack/os/RaspiOS_Full_armhf/root   ansible_connection=chroot   ansible_executable="usr/bin/qemu-arm-static /bin/bash"

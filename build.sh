@@ -9,7 +9,10 @@ if [ ! -f NOOBS_latest ] ; then
  wget https://downloads.raspberrypi.org/NOOBS_latest
 fi
 if [ ! -f root.tar.xz ] ; then
- wget https://downloads.raspberrypi.org/raspbian_lite/root.tar.xz
+ wget https://downloads.raspberrypi.org/raspios_lite_armhf/root.tar.xz
+fi
+if [ ! -f boot.tar.xz ] ; then
+ wget https://downloads.raspberrypi.org/raspios_lite_armhf/boot.tar.xz
 fi
 
 
@@ -18,10 +21,11 @@ mkdir unpack
 unzip NOOBS_latest -d unpack
 
 echo "runinstaller quiet ramdisk_size=32768 root=/dev/ram0 init=/init vt.cur_default=1 elevator=deadline silentinstall" > unpack/recovery.cmdline
-OSDIR=Raspbian_Full
+OSDIR=RaspiOS_Full_armhf
 
 rm -rf unpack/os/Libr*
 cp root.tar.xz unpack/os/${OSDIR}/root.tar.xz
+cp boot.tar.xz unpack/os/${OSDIR}/boot.tar.xz
 
 cd unpack/os/${OSDIR}
 
